@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Link from "next/link"; //Feat: Import Link component for navbar
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,6 +28,24 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+
+        {
+          /* Adding custom code in layout.txt will render on every page.
+           *  This is an example of a multiline comment inside of the jsx part of this typescript file.
+           *  The comment must be wrapped in curly braces so its parsed as javascript, then javascript comment syntax is used
+          */
+        }
+
+
+        {/* Feat: Add global navbar for site navigation.*/}
+        <div>
+          {" "}
+          <Link href={"/"}> Home </Link>
+          <Link href={"/about"}> About </Link> {/* These links need to coorilate with a tsx file within a subfolder within ./app/* because the app folder is the app router, which make React/NextJS aware of those pages.*/}
+          <Link href={"/users"}> Users </Link>
+        </div>
+        {/* End Feat*/}
+
         {children}
       </body>
     </html>

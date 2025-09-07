@@ -16,7 +16,8 @@ export default async function PostsPage() {
                 {/* Map over the posts and display them. I still need to learn more about this */}
                 {posts.map((post) => (
                     <li key={post.id} className="flex items-center justify-between px-5">
-                        <Link href={`/posts/${post.id}`}>
+                        {/* For every post from the db, make a link that points to that post's id, which will procedurally generate the page.*/}
+                        <Link href={`/posts/${post.slug}`}>
                             {post.title}
                         </Link>
                     </li>

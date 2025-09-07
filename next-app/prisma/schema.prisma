@@ -3,10 +3,21 @@
 
 generator client {
   provider = "prisma-client-js"
-  output   = "../app/generated/prisma"
+  //  output   = "../app/generated/prisma" //Okay for whatever reason, getting rid of this output fixed an error I was having where it would tell me to run npx prisma generate. Fix is from https://github.com/prisma/prisma/discussions/23741
 }
 
 datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
+}
+
+// Adding my own tables to the db
+// Run npx prisma db push to create/modify db
+model Post {
+  id        String   @id @default(cuid())
+  title     String
+  content   String
+  published Boolean? @default(false)
+  updatedAt DateTime @updatedAt
+  createdAt DateTime @default(now())
 }

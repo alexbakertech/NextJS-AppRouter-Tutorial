@@ -43,6 +43,7 @@ export default function RootLayout({
           <Link href={"/"}> Home </Link>
           <Link href={"/about"}> About </Link> {/* These links need to coorilate with a tsx file within a subfolder within ./app/* because the app folder is the app router, which make React/NextJS aware of those pages.*/}
           <Link href={"/users"}> Users </Link>
+          <Link href={"/database"}> Database </Link>
         </div>
         {/* End Feat*/}
 

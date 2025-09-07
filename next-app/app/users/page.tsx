@@ -15,6 +15,7 @@ export default async function Users() {
         <div>
             {" "}
             <h1>User List</h1>
+            <br />
             <ul>
                 {users.map((user: { id: number; name: string }) => ( //Go through and print out each user's Name by iterating through each returned User ID
                     <li key={user.id}>
